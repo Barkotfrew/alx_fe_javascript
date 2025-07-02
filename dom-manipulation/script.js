@@ -214,7 +214,8 @@ async function postQuoteToServer(quote) {
 
     const result = await response.json();
     quote.id = result.id;
-    showNotification("Quote synced to server.");
+    // Here is the required notification text:
+    showNotification("Quotes synced with server!");
   } catch (error) {
     console.error("Error posting to server:", error);
     showNotification("Failed to sync quote to server.", true);
@@ -245,9 +246,11 @@ function showNotification(message, isError = false) {
   notif.style.backgroundColor = isError ? "#e74c3c" : "#2ecc71";
   notif.textContent = message;
   notif.classList.add("show");
+  notif.style.display = "block";
   setTimeout(() => {
     notif.textContent = "";
     notif.classList.remove("show");
+    notif.style.display = "none";
   }, 4000);
 }
 
