@@ -5,68 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dynamic Quote Generator</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 10px;
-      line-height: 1.5;
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #notification { 
+      position: fixed; 
+      bottom: 10px; 
+      right: 10px; 
+      padding: 10px 20px; 
+      border-radius: 5px; 
+      color: white; 
+      font-weight: bold; 
+      z-index: 1000; 
+      display: none;
     }
-    #quoteDisplay {
-      margin: 20px 0;
-      font-size: 1.3em;
-      font-style: italic;
-      min-height: 50px;
-      border-left: 4px solid #007BFF;
-      padding-left: 10px;
-      color: #333;
-    }
-    input, select, button {
-      padding: 8px;
-      margin-right: 10px;
-      margin-top: 10px;
-      width: 200px;
-    }
-    button {
-      cursor: pointer;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      width: auto;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    label {
-      font-weight: bold;
-      margin-right: 10px;
-    }
-    #addQuoteFormContainer input {
-      width: 280px;
-      margin-right: 5px;
-    }
+    #notification.show { display: block; }
+    #categorySelect { margin-bottom: 10px; }
+    #addQuoteFormContainer input { margin-right: 5px; margin-bottom: 10px; }
   </style>
 </head>
 <body>
-
   <h1>Dynamic Quote Generator</h1>
 
-  <label for="categorySelect">Choose a category:</label>
+  <!-- Category dropdown for filtering -->
+  <label for="categorySelect">Select category:</label>
   <select id="categorySelect"></select>
 
-  <div id="quoteDisplay"></div>
+  <!-- Area where the quote will be displayed -->
+  <div id="quoteDisplay" style="margin: 20px 0; font-size: 1.5em; font-style: italic; min-height: 60px;"></div>
 
+  <!-- Button to show new quote -->
   <button id="newQuote">Show New Quote</button>
 
-  <div id="addQuoteFormContainer"></div>
+  <!-- Container for manual sync button will be inserted next to the above button -->
 
-  <hr />
+  <!-- Container for adding new quote form -->
+  <div id="addQuoteFormContainer" style="margin-top: 20px;"></div>
 
-  <label for="importFile">Import Quotes (JSON):</label>
-  <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+  <!-- Export JSON button -->
+  <button id="exportJson" style="margin-top: 20px;">Export Quotes (JSON)</button>
 
-  <button id="exportJson">Export Quotes to JSON</button>
+  <!-- Import JSON file input -->
+  <input type="file" id="importFile" accept=".json" style="margin-left: 10px; margin-top: 20px;" onchange="importFromJsonFile(event)" />
+
+  <!-- Notification area (optional, can be created dynamically in JS) -->
+  <div id="notification"></div>
 
   <script src="script.js"></script>
 </body>
