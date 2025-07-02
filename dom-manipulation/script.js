@@ -44,5 +44,32 @@ function addQuote() {
   categoryInput.value = "";
 }
 
-document.getElementById("newQuote").addEventListener("click", showRandomQuote);
-window.onload = updateCategoryOptions;
+// Dynamically create the add-quote form
+function createAddQuoteForm() {
+  const container = document.getElementById("addQuoteFormContainer");
+  container.innerHTML = ""; // Clear any existing content
+
+  const inputQuote = document.createElement('input');
+  inputQuote.id = 'newQuoteText';
+  inputQuote.type = 'text';
+  inputQuote.placeholder = 'Enter a new quote';
+
+  const inputCategory = document.createElement('input');
+  inputCategory.id = 'newQuoteCategory';
+  inputCategory.type = 'text';
+  inputCategory.placeholder = 'Enter quote category';
+
+  const addButton = document.createElement('button');
+  addButton.textContent = 'Add Quote';
+  addButton.addEventListener('click', addQuote);
+
+  container.appendChild(inputQuote);
+  container.appendChild(inputCategory);
+  container.appendChild(addButton);
+}
+
+window.onload = function() {
+  updateCategoryOptions();
+  createAddQuoteForm();
+  document.getElementById("newQuote").addEventListener("click", showRandomQuote);
+};
