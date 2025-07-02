@@ -6,15 +6,15 @@
   <title>Dynamic Quote Generator</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; }
-    #notification { 
-      position: fixed; 
-      bottom: 10px; 
-      right: 10px; 
-      padding: 10px 20px; 
-      border-radius: 5px; 
-      color: white; 
-      font-weight: bold; 
-      z-index: 1000; 
+    #notification {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      z-index: 1000;
       display: none;
     }
     #notification.show { display: block; }
@@ -25,28 +25,21 @@
 <body>
   <h1>Dynamic Quote Generator</h1>
 
-  <!-- Category dropdown for filtering -->
   <label for="categorySelect">Select category:</label>
   <select id="categorySelect"></select>
 
-  <!-- Area where the quote will be displayed -->
   <div id="quoteDisplay" style="margin: 20px 0; font-size: 1.5em; font-style: italic; min-height: 60px;"></div>
 
-  <!-- Button to show new quote -->
   <button id="newQuote">Show New Quote</button>
 
-  <!-- Container for manual sync button will be inserted next to the above button -->
+  <!-- Manual sync button will be inserted here by script -->
 
-  <!-- Container for adding new quote form -->
   <div id="addQuoteFormContainer" style="margin-top: 20px;"></div>
 
-  <!-- Export JSON button -->
   <button id="exportJson" style="margin-top: 20px;">Export Quotes (JSON)</button>
 
-  <!-- Import JSON file input -->
   <input type="file" id="importFile" accept=".json" style="margin-left: 10px; margin-top: 20px;" onchange="importFromJsonFile(event)" />
 
-  <!-- Notification area (optional, can be created dynamically in JS) -->
   <div id="notification"></div>
 
   <script src="script.js"></script>
