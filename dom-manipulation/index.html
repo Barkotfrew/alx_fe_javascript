@@ -2,45 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dynamic Quote Generator</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    #notification {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      padding: 10px 20px;
-      border-radius: 5px;
-      color: white;
-      font-weight: bold;
-      z-index: 1000;
-      display: none;
-    }
-    #notification.show { display: block; }
-    #categorySelect { margin-bottom: 10px; }
-    #addQuoteFormContainer input { margin-right: 5px; margin-bottom: 10px; }
-  </style>
 </head>
 <body>
   <h1>Dynamic Quote Generator</h1>
 
-  <label for="categorySelect">Select category:</label>
-  <select id="categorySelect"></select>
-
-  <div id="quoteDisplay" style="margin: 20px 0; font-size: 1.5em; font-style: italic; min-height: 60px;"></div>
-
+  <div id="quoteDisplay"></div>
   <button id="newQuote">Show New Quote</button>
 
-  <!-- Manual sync button will be inserted here by script -->
-
-  <div id="addQuoteFormContainer" style="margin-top: 20px;"></div>
-
-  <button id="exportJson" style="margin-top: 20px;">Export Quotes (JSON)</button>
-
-  <input type="file" id="importFile" accept=".json" style="margin-left: 10px; margin-top: 20px;" onchange="importFromJsonFile(event)" />
-
-  <div id="notification"></div>
+  <!-- Form to Add New Quote -->
+  <div>
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+    <button id="addQuoteBtn">Add Quote</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
